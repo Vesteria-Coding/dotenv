@@ -13,11 +13,9 @@ just use load_dotenv(FilePath) and you are done loading the variables.
 #include <vector>
 #include <string>
 #include <cstdlib>
-#include <iostream>
 #include <fstream>
 #include <algorithm>
 #include <ranges>
-#include <vector>
 
 inline void load_dotenv(std::string FilePath = ".env") {
     std::ifstream File(FilePath);
@@ -57,3 +55,4 @@ inline void load_dotenv(std::string FilePath = ".env") {
 
 
 #endif // DOTENV_H
+
