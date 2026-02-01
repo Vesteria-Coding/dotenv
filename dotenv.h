@@ -53,6 +53,4 @@ inline void load_dotenv(std::string FilePath = ".env") {
     File.close();
 }
 
-
 #endif // DOTENV_H
-
