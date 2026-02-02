@@ -4,3 +4,5 @@ This was inspired by others single files libraries and Python's load_dotenv() fu
 
 HOW TO USE:
 just use `load_dotenv(FilePath)` and you are done loading the variables.
+
+☕️ Buy me a coffee ☕️ BTC: bc1qa9h0mq5ydph66ju3p9a5vpmjm6wezzaqayeasc
