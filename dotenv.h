@@ -42,7 +42,7 @@ inline void load_dotenv(std::string FilePath = ".env") {
             _putenv_s(DataArray[0].c_str(), DataArray[1].c_str());
         #elif defined(__linux__)
             setenv(DataArray[0].c_str(), DataArray[1].c_str(), 1);
-        #elif defined(__APPLE__) && defined(__MACH__)
+        #elif defined(__APPLE__) || defined(__MACH__)
             setenv(DataArray[0].c_str(), DataArray[1].c_str(), 1);
         #else
             std::cerr << "ERROR: Unkown OS." << '\n';
