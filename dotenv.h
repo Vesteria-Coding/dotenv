@@ -31,7 +31,7 @@ inline void load_dotenv(std::string FilePath = ".env") {
         if (Pos != std::string::npos) {
             Line = Line.substr(0, Pos);
         }
-        if (Line.empty()) {
+        if (Line.empty() || Line.find('=') == std::string::npos) {
             continue;
         }
         DataArray.clear();
@@ -39,15 +39,15 @@ inline void load_dotenv(std::string FilePath = ".env") {
             DataArray.push_back(std::string(part.begin(), part.end()));
         }
         #if defined(_WIN32) || defined(_WIN64)
-            _putenv_s(DataArray[0].c_str(), DataArray[1].c_str());
+                _putenv_s(DataArray[0].c_str(), DataArray[1].c_str());
         #elif defined(__linux__)
-            setenv(DataArray[0].c_str(), DataArray[1].c_str(), 1);
+                setenv(DataArray[0].c_str(), DataArray[1].c_str(), 1);
         #elif defined(__APPLE__) || defined(__MACH__)
-            setenv(DataArray[0].c_str(), DataArray[1].c_str(), 1);
+                setenv(DataArray[0].c_str(), DataArray[1].c_str(), 1);
         #else
-            std::cerr << "ERROR: Unkown OS." << '\n';
-            File.close();
-            return;
+                std::cerr << "ERROR: Unkown OS." << '\n';
+                File.close();
+                return;
         #endif
     }
     File.close();
