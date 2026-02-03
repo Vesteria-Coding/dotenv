@@ -31,7 +31,7 @@ inline void load_dotenv(std::string FilePath = ".env") {
         if (Pos != std::string::npos) {
             Line = Line.substr(0, Pos);
         }
-        if (Line.empty() || Line.find('=') == std::string::npos) {
+        if (Line.empty()) {
             continue;
         }
         DataArray.clear();
@@ -54,3 +54,4 @@ inline void load_dotenv(std::string FilePath = ".env") {
 }
 
 #endif // DOTENV_H
+
