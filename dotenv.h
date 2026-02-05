@@ -38,6 +38,9 @@ inline void load_dotenv(std::string FilePath = ".env") {
         for (auto&& part : Line | std::views::split('=')) {
             DataArray.push_back(std::string(part.begin(), part.end()));
         }
+        if (DataArray.size() < 2) {
+            continue;
+        }
         #if defined(_WIN32) || defined(_WIN64)
                 _putenv_s(DataArray[0].c_str(), DataArray[1].c_str());
         #elif defined(__linux__)
